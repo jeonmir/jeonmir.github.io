@@ -1,0 +1,197 @@
+@charset "utf-8";
+
+ *{ /*전체 공통*/
+            box-sizing: border-box; /*박스 크기를 테두리 선까지를 크기의 기준으로 지정*/
+            margin: 0;
+            font-family: 'NanumSquare';
+        }
+
+        #container{/*전체박스*/
+            border: 1px solid #000;
+            width: 100% ; max-width: 1200px;
+            margin: auto;
+        }
+
+        #header{
+            width: 100%;
+            height: 400px;
+            background-image: url(../images/bgimg01.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            position: relative;
+        }
+
+        #headerBox{
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #headerBox > h1{ /*헤더 안의 큰 제목*/
+            font-family: 'NanumBrush';
+            font-weight: normal;
+            font-size: 4em;
+            padding-top: 50px; padding-left: 20px;
+        }
+
+        #headerBox > p{/*헤더 안의 단락 문자*/
+            font-size: 1.2em;
+            padding: 10px; padding-left: 20px;
+        }
+
+        #headerBox > h1 > img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        /*네비게이션 영역*/
+        #navi{ /*네비게이션 박스 영역*/
+            width: 100%; height: 50px;
+            background-color: #111;
+        }
+        #menu{ /*메뉴 박스 ul*/
+            list-style: none; /*부호 없애기*/
+            padding: 0; /*부호 공간 없애기*/
+            display: flex; /*가로방향으로 배치하기*/
+            justify-content: center; /*수평 정렬 가운데*/
+        } 
+        
+    
+        .main{ /*각 메뉴 리스트 li*/
+        } 
+        .main > a{ /*각 메뉴 링크*/
+            color: #eee;
+            font-size: 1.2em;
+            text-decoration: none; /*밑줄 없애기*/
+            display: block; /*여백 조절, 공간 채우기*/
+            padding: 0 1em;
+            line-height: 50px; /*세로 높이 조절*/
+        }
+
+          .main > a:hover{
+            background-color: tomato;
+        }
+        /*섹션 영역*/
+        #contents { /*섹션 영역*/
+            background-color: #FCEFCB;
+            padding: 1em;
+        }
+        #sectionTitle{/*섹션 제목*/
+            font-size: 2em;
+            color: #7C4585;
+            margin-bottom: 0.5em;
+        } 
+        .text{/*섹션 본문 내용들*/
+            font-size: 1.1em;
+            text-align: justify;
+            line-height: 1.5em;
+            margin-bottom: 1em;
+        } 
+
+        .smallTitle{ /*소제목 문자*/
+            background-color: #333;
+            color: #fff;
+            font-size: 1.5em;
+            padding: 0.4em 1em;
+            margin-bottom: 10px;
+
+            display: inline-block; /*내용만큼의 폭으로 만들기*/
+            box-shadow: 5px 5px rgb(0, 0, 0, 0.7);
+        }
+
+        .galleryBox{ /*사진 영상 리스트 박스  ul*/
+            list-style: none; padding: 0;
+
+            display: grid; /*바둑판 배치*/
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+        
+        .list{/*각 리스트*/
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 10px;
+        }
+
+        .icon{
+            position: absolute;
+            top: 10px; left: 10px;
+            font-size: 1.5em;
+        }
+
+
+        .thumb, .video{/*텍스트 이미지*/
+            width: 100%; /*공간의 폭에 맞추기*/
+            display: block; /*공간의 세로 폭에 채우기*/
+
+            border-radius: 10px; /*둥근 모서리*/
+        }
+
+
+        /*마우스 커서 따라 이미지 크기 변화*/
+        .thumb:hover {
+            transform: scale(1.05);
+        }
+         .thumb{translate: 0.3s;}
+
+        .video:hover {
+            transform: scale(1.05);
+        }
+         .video{translate: 0.3s;}
+
+        .map{
+            width: 100%; height: 300px;
+            margin-top: 10px;
+            border-radius: 10px ;
+            margin-bottom: 50px;
+        }
+
+        #link{ /* 기상청 링크 */
+            background-color:cornflowerblue;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        #link:hover{
+            background-color: #000;
+        }
+
+        #footer{
+            background-color: #555;
+            color: #ddd;
+            padding: 2em;
+            line-height: 1.6em;
+            text-align: center;
+        }
+
+
+/*태블릿화면(850px 이하) 스타일*/
+@media screen and (max-width:850px) 
+{
+
+    .galleryBox
+    {grid-template-columns: repeat(2,1fr);}
+
+}
+
+@media screen and (max-width:450px) 
+{
+
+    .galleryBox
+    {grid-template-columns: 100%;}
+
+    #header > h1 /*타이틀 크게 바꾸기*/
+    {font-size: 3em;}
+
+    #menu /*메뉴를 아래 방향으로 배치하기*/
+    {display: block;}
+
+    #navi /*내비게이션의 세로폭 자동으로 늘리기*/
+    {height: auto;}
+}
